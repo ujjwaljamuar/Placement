@@ -1,6 +1,6 @@
 package Singly_LinkedList;
 
-public class SLL {
+public class nthNodeFromEnd {
     private ListNode head;
 
     private static class ListNode{
@@ -21,8 +21,37 @@ public class SLL {
         }
         System.out.print("null");
     }
+
+    public ListNode getNthNodeFromEnd(int n) {
+		if(head == null) {
+			return null;
+		}
+
+		if(n <= 0) {
+			throw new IllegalArgumentException("Invalid value: n = " + n);
+		}
+
+		ListNode mainPtr = head;
+		ListNode refPtr = head;
+
+		int count = 0;
+
+		while(count < n) {
+			if(refPtr == null) {
+				throw new IllegalArgumentException(n + " is greater than the number of nodes in list");
+			}
+			refPtr = refPtr.next;
+			count++;
+		}
+
+		while(refPtr != null) {
+			refPtr = refPtr.next;
+			mainPtr = mainPtr.next;
+		}
+		return mainPtr;
+	}
     public static void main(String[] args) {
-        SLL sll = new SLL();
+        nthNodeFromEnd sll = new nthNodeFromEnd();
         sll.head= new ListNode(10);
         ListNode second = new ListNode(20);
         ListNode third = new ListNode(30);
@@ -33,5 +62,10 @@ public class SLL {
         third.next = fourth;
 
         sll.display();
+
+        System.out.println();
+
+        ListNode nthNodeFromEnd = sll.getNthNodeFromEnd(1);
+        System.out.println("Nth Node is -> " + nthNodeFromEnd.data);
     }
 }

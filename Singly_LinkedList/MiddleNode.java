@@ -1,6 +1,6 @@
 package Singly_LinkedList;
 
-public class SLL {
+public class MiddleNode {
     private ListNode head;
 
     private static class ListNode{
@@ -21,17 +21,38 @@ public class SLL {
         }
         System.out.print("null");
     }
+
+    public ListNode getMiddleNode() {
+		if(head == null) {
+			return null;
+		}
+		ListNode slowPtr = head;
+		ListNode fastPtr = head;
+
+		while(fastPtr != null && fastPtr.next != null) {
+			slowPtr = slowPtr.next;
+			fastPtr = fastPtr.next.next;
+		}
+		return slowPtr;
+	}
     public static void main(String[] args) {
-        SLL sll = new SLL();
+        MiddleNode sll = new MiddleNode();
         sll.head= new ListNode(10);
         ListNode second = new ListNode(20);
         ListNode third = new ListNode(30);
         ListNode fourth = new ListNode(40);
+        ListNode fifth = new ListNode(50);
+
 
         sll.head.next = second;
         second.next = third;
         third.next = fourth;
+        fourth.next = fifth;
 
         sll.display();
-    }
+
+        System.out.println();
+        ListNode middleNode = sll.getMiddleNode();
+        System.out.println("Middle Node is "+middleNode.data);
+    }   
 }
