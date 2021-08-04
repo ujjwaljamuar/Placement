@@ -3,7 +3,7 @@ package Arrays;
 public class MoveZeroesToEnd {
 
     public void demoArray() {
-        int[] arr = { 2, 5, 0, 0, 3, 0, 5, 4, 8, };
+        int[] arr = { 2, 5, 0, 0, 3, 0, 5, 4, 8 };
         printArray(arr);
         System.out.println();
 
