@@ -1,6 +1,8 @@
 package BinaryTree;
 
-public class RecursivePreOrder {
+import java.util.Stack;
+
+public class IterativePreorder {
     private TreeNode root;
 
     private class TreeNode {
@@ -29,20 +31,38 @@ public class RecursivePreOrder {
 
     }
 
-    public void PreOrder(TreeNode root) {
+    public void RecursePreOrder(TreeNode root) {
         if (root == null) {
             return;
         }
         System.out.print(root.data + " ");
-        PreOrder(root.left);
-        PreOrder(root.right);
+        RecursePreOrder(root.left);
+        RecursePreOrder(root.right);
     }
 
-    
+    public void IteratePreOrder() {
+        if (root == null) {
+            return;
+        }
+        Stack <TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode temp = stack.pop();
+            System.out.print(temp.data + " ");
+
+            if (temp.right != null){
+                stack.push(temp.right);
+            }
+
+            if (temp.left != null){
+                stack.push(temp.left);
+            }
+        }
+    }
 
     public static void main(String[] args) {
-        RecursivePreOrder bt = new RecursivePreOrder();
+        IterativePreorder bt = new IterativePreorder();
          bt.createBinaryTree();
-         bt.PreOrder(bt.root);
+         bt.IteratePreOrder();
     }
 }
