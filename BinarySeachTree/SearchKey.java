@@ -1,5 +1,4 @@
-public class BinarySearchTree {
-
+public class SearchKey {
     private TreeNode root;
 
     public class TreeNode {
@@ -44,8 +43,23 @@ public class BinarySearchTree {
         return root;
     }
 
+    public TreeNode searh(int key){
+        return search(root, key);
+    }
+
+    public TreeNode search(TreeNode root ,int key) {
+        if (root == null || root.data == key) {
+            return root;
+        }
+        if (key < root.data) {
+            return search(root.left, key);
+        } else{
+            return search(root.right, key);
+        }
+    }
+
     public static void main(String[] args) {
-        BinarySearchTree bst = new BinarySearchTree();
+        SearchKey bst = new SearchKey();
         bst.insert(50);
         bst.insert(45);
         bst.insert(40);
@@ -55,5 +69,13 @@ public class BinarySearchTree {
         bst.insert(60);
 
         bst.inorder();
+
+        System.out.println(" ");
+
+        if (null != bst.searh(5)) {
+            System.out.println("Key Found !!!");
+        } else{
+            System.out.println("Key not found !!!");
+        }
     }
 }
