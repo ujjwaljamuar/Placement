@@ -23,7 +23,7 @@ public class BubbleSort {
                     isSwapped = true;
                 }
             }
-            if (isSwapped = false) {
+            if (isSwapped == false) {
                 break;
             }
         }
