@@ -1,11 +1,11 @@
-package Graphs.AdjencyMatrix_Undirected;
+package Graphs.AdjacencyMatrix_Undirected;
 
-public class AdjencyMatrix {
+public class AdjacencyMatrix {
     private int V; // number of vertices in Graph
 	private int E; // number of edges in Graph
 	private int[][] adjMatrix;
 	
-	public AdjencyMatrix(int nodes) {
+	public AdjacencyMatrix(int nodes) {
 		this.V = nodes;
 		this.E = 0;
 		this.adjMatrix = new int[nodes][nodes];
@@ -31,11 +31,12 @@ public class AdjencyMatrix {
 	}
 
 	public static void main(String[] args) {
-		AdjencyMatrix g = new AdjencyMatrix(4);
+		AdjacencyMatrix g = new AdjacencyMatrix(4);
 		g.addEdge(0, 1);
 		g.addEdge(1, 2);
 		g.addEdge(2, 3);
 		g.addEdge(3, 0);
+        
 		System.out.println(g);
 	}
 }
