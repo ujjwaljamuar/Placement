@@ -1,3 +1,5 @@
+package Sorting;
+
 public class MergeSort {
     public void printArr(int[] arr) {
         int n = arr.length;

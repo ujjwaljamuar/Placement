@@ -1,3 +1,5 @@
+package BinarySearch;
+
 public class BinarySearch {
 
     public int BinSearch(int[] num, int key) {

@@ -44,8 +44,7 @@ public class Trie {
             
         }
 
-    public boolean search(String word) {
-        return false;
+    public boolean search(String word) {        return false;
     }
     public static void main(String[] args) {
         Trie tr = new Trie();

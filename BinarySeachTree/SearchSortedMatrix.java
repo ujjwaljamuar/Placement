@@ -1,3 +1,4 @@
+package BinarySeachTree;
 public class SearchSortedMatrix {
 
     public void search(int[][] matrix, int n, int key) {

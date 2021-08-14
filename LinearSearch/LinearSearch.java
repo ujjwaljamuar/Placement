@@ -1,3 +1,5 @@
+package LinearSearch;
+
 public class LinearSearch {
 
     public int LiSearch(int[] arr,int n, int key) {

@@ -1,3 +1,5 @@
+package Sorting;
+
 public class MergeTwoSortedArrays {
 
     public void printArr1(int[] arr1) {
