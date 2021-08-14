@@ -1,7 +1,5 @@
 package DynamicProgramming;
 
-import java.util.Scanner;
-
 public class nthFibItr {
     static int fib(int n) {
         /* Declare an array to store Fibonacci numbers. */
