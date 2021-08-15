@@ -68,6 +68,6 @@ public class HashTable {
         table.put(21, "Sana");
         table.put(21, "Harry");
 
-        System.out.println(table.size());
+        System.out.println(table.size());                        // 2
     }
 }
