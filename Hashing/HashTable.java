@@ -62,6 +62,18 @@ public class HashTable {
         buckets[bucketIndex] = node;
     }
 
+    public String getValue(int key){
+        int bucketIndex = getBucketIndex(key);
+        HashNode head = buckets[bucketIndex];
+        while (head != null) {
+            if(head.key.equals(key)){
+                return head.value;
+            }
+            head = head.next;
+        }
+        return null;
+    }
+
     public static void main(String[] args) {
         HashTable table = new HashTable(10);
         table.put(105, "Tom");
@@ -69,5 +81,9 @@ public class HashTable {
         table.put(21, "Harry");
 
         System.out.println(table.size());                        // 2
+
+        System.out.println(table.getValue(105));              // prints tom
+        System.out.println(table.getValue(21));              // prints Harry
+
     }
 }
