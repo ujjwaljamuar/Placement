@@ -74,16 +74,50 @@ public class HashTable {
         return null;
     }
 
+    public String remove(Integer key) {
+        if (key == null) {
+            throw new IllegalArgumentException("Key is null");
+        }
+
+        int bucketIndex = getBucketIndex(key);
+        HashNode head = buckets[bucketIndex];
+        HashNode previous = null;
+
+        while (head != null) {
+            if (head.key.equals(key)) {
+                break;
+            }
+            previous = head;
+            head = head.next;
+        }
+
+        if (head == null) {
+            return null;
+        }
+        size--;
+        if (previous != null) {
+            previous.next = head.next;
+        } else {
+            buckets[bucketIndex] = head.next;
+        }
+
+        return head.value;
+    }
+
     public static void main(String[] args) {
         HashTable table = new HashTable(10);
         table.put(105, "Tom");
         table.put(21, "Sana");
         table.put(21, "Harry");
 
-        System.out.println(table.size()); // 2
+        System.out.println(table.size());                   // 2
 
-        System.out.println(table.getValue(105));                   // prints tom
-        System.out.println(table.getValue(21));                    // prints Harry
-        System.out.println(table.getValue(2));                     // prints null
+        System.out.println(table.getValue(105));            // prints tom
+        System.out.println(table.getValue(21));             // prints Harry
+        System.out.println(table.getValue(2));              // prints null
+
+        table.remove(105);
+
+        System.out.println(table.size());                   // 1
     }
 }
